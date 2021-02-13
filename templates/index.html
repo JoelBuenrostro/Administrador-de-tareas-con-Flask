@@ -33,7 +33,15 @@
                          </form>
                      </div>
                      <div class="card-body">
-
+                         <ul class="list-group">
+                             {% for task in tasks %}
+                             <li class="list-group-item">
+                                 <spam class="{% if task.done %} done {% endif %}">{{task.content}}</spam>
+                                 <a href="/done/{{task.id}}" class="btn btn-primary btn-sm">Completa</a>
+                                 <a href="/delete/{{task.id}}" class="btn btn-danger btn-sm">Borrar</a>
+                             </li>
+                             {% endfor %}
+                         </ul>
                      </div>
                  </div>
              </div>
